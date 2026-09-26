@@ -6,8 +6,13 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "configs", "default.
 
 
 def load_config() -> Dict[str, Any]:
-    with open(CONFIG_PATH, "r") as f:
-        return yaml.safe_load(f)
+    if os.path.exists(CONFIG_PATH):
+        try:
+            with open(CONFIG_PATH, "r") as f:
+                return yaml.safe_load(f) or {}
+        except Exception:
+            return {}
+    return {}
 
 
 class BayesianKnowledgeTracer:

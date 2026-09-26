@@ -39,7 +39,7 @@ reports:
   include_genai_summary: true   # false = skip LLM summary (faster, still shows data)
 
 llm:
-  model: "gemini-1.5-flash"
+  model: "gemini-2.5-flash"
   temperature: 0.7
   provider: "auto"         # 'gemini', 'openai', or 'mock_fallback'
 
