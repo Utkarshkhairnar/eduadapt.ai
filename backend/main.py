@@ -6,9 +6,11 @@ workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if workspace_root not in sys.path:
     sys.path.insert(0, workspace_root)
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from backend.db.session import init_db
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, JSONResponse
+from backend.db.session import init_db, SessionLocal
 from backend.api.student_endpoints import router as student_router
 from backend.api.teacher_endpoints import router as teacher_router
 from backend.api.admin_endpoints import router as admin_router
@@ -20,7 +22,7 @@ app = FastAPI(
     version="2.0.0",
 )
 
-# CORS configuration allowing local frontend dev server
+# CORS configuration allowing local and remote clients
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -29,10 +31,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize database tables on startup
+# Safe database initialization
 @app.on_event("startup")
 def on_startup():
-    init_db()
+    try:
+        init_db()
+        from backend.db.models import Concept
+        from scripts.seed_demo_data import seed_database
+        db = SessionLocal()
+        try:
+            if db.query(Concept).count() == 0:
+                print("Seeding initial database concepts and questions...")
+                seed_database()
+        except Exception as seed_err:
+            print(f"Database seed note: {seed_err}")
+        finally:
+            db.close()
+    except Exception as e:
+        print(f"Startup initialization notice: {e}")
 
 # Mount all endpoint routers both at root and /api
 for r in [student_router, teacher_router, admin_router, legacy_router]:
@@ -40,6 +56,7 @@ for r in [student_router, teacher_router, admin_router, legacy_router]:
     app.include_router(r, prefix="/api")
 
 @app.get("/health")
+@app.get("/api/health")
 def health_check():
     return {
         "status": "healthy",
@@ -47,6 +64,33 @@ def health_check():
         "version": "2.0.0",
         "subjects": ["maths3", "automata_theory", "adsa", "java", "c_programming", "python"]
     }
+
+# Serve Frontend static assets and index if built
+dist_dir = os.path.join(workspace_root, "frontend", "dist")
+index_file = os.path.join(dist_dir, "index.html")
+assets_dir = os.path.join(dist_dir, "assets")
+
+if os.path.exists(assets_dir):
+    app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+@app.get("/")
+def root_endpoint():
+    if os.path.exists(index_file):
+        return FileResponse(index_file)
+    return {
+        "status": "online",
+        "service": "EduAdapt AI — Multi-Subject Adaptive Learning Platform",
+        "version": "2.0.0",
+        "docs": "/docs",
+        "health": "/health"
+    }
+
+@app.get("/favicon.ico")
+def favicon():
+    fav = os.path.join(workspace_root, "frontend", "public", "vite.svg")
+    if os.path.exists(fav):
+        return FileResponse(fav)
+    return JSONResponse(status_code=204, content=None)
 
 if __name__ == "__main__":
     import uvicorn

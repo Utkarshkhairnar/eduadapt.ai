@@ -22,38 +22,25 @@ except ImportError:
 _ENV_PATH = os.path.join(os.path.dirname(__file__), "..", "configs", ".env")
 
 
-if _USE_PYDANTIC_SETTINGS:
-    class AISettings(BaseSettings):
-        """AI provider settings loaded from backend/configs/.env"""
-        ai_provider: str = "mock_fallback"          # "openai" | "gemini" | "mock_fallback"
-        openai_api_key: Optional[str] = None
-        gemini_api_key: Optional[str] = None
-        ai_model: str = "gemini-1.5-flash"
-        ai_timeout_seconds: int = 20
-
-        model_config = SettingsConfigDict(
-            env_file=_ENV_PATH,
-            env_file_encoding="utf-8",
-            case_sensitive=False,
-            extra="ignore",
-        )
-else:
-    class AISettings:
-        """Fallback manual .env reader when pydantic-settings not installed."""
-        def __init__(self):
-            env = {}
-            if os.path.exists(_ENV_PATH):
+class AISettings:
+    """Settings reader that checks os.environ first, then backend/configs/.env as fallback."""
+    def __init__(self):
+        env = {}
+        if os.path.exists(_ENV_PATH):
+            try:
                 with open(_ENV_PATH, "r") as f:
                     for line in f:
                         line = line.strip()
                         if line and not line.startswith("#") and "=" in line:
                             k, _, v = line.partition("=")
                             env[k.strip().upper()] = v.strip().strip('"').strip("'")
-            self.ai_provider = env.get("AI_PROVIDER", "mock_fallback")
-            self.openai_api_key = env.get("OPENAI_API_KEY") or None
-            self.gemini_api_key = env.get("GEMINI_API_KEY") or None
-            self.ai_model = env.get("AI_MODEL", "gemini-1.5-flash")
-            self.ai_timeout_seconds = int(env.get("AI_TIMEOUT_SECONDS", "20"))
+            except Exception:
+                pass
+        self.ai_provider = os.environ.get("AI_PROVIDER") or env.get("AI_PROVIDER", "gemini")
+        self.openai_api_key = os.environ.get("OPENAI_API_KEY") or env.get("OPENAI_API_KEY") or None
+        self.gemini_api_key = os.environ.get("GEMINI_API_KEY") or env.get("GEMINI_API_KEY") or None
+        self.ai_model = os.environ.get("AI_MODEL") or env.get("AI_MODEL", "gemini-2.5-flash")
+        self.ai_timeout_seconds = int(os.environ.get("AI_TIMEOUT_SECONDS") or env.get("AI_TIMEOUT_SECONDS", "20"))
 
 
 def get_ai_settings() -> AISettings:
