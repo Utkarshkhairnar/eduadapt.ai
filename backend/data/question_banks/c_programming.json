@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q_c01_1",
+    "subject_id": "c_programming",
+    "concept_id": "C01",
+    "text": "What is the result of 5 & 3 in C bitwise operations?",
+    "options": [
+      "1",
+      "7",
+      "2",
+      "8"
+    ],
+    "correct_answer": 0,
+    "explanation": "5 is 0101 in binary, 3 is 0011. 0101 & 0011 = 0001 which is 1.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_c02_1",
+    "subject_id": "c_programming",
+    "concept_id": "C02",
+    "text": "In C, function arguments are passed by:",
+    "options": [
+      "Reference",
+      "Value (copies are passed)",
+      "Pointer automatically",
+      "Name"
+    ],
+    "correct_answer": 1,
+    "explanation": "C is strictly call-by-value. To simulate call-by-reference, the address (pointer) is passed by value.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_c03_1",
+    "subject_id": "c_programming",
+    "concept_id": "C03",
+    "text": "What is the terminator character for valid C string literals in memory?",
+    "options": [
+      "'\\n'",
+      "'\\0' (NULL character)",
+      "'EOF'",
+      "';'"
+    ],
+    "correct_answer": 1,
+    "explanation": "C strings are null-terminated character sequences ending with byte 0x00 ('\\0').",
+    "difficulty": 3
+  },
+  {
+    "id": "q_c04_1",
+    "subject_id": "c_programming",
+    "concept_id": "C04",
+    "text": "If int *p = arr; where arr is an int array, what does *(p + 2) evaluate to?",
+    "options": [
+      "arr[2]",
+      "arr[0] + 2",
+      "Address of arr + 2 bytes",
+      "Syntax Error"
+    ],
+    "correct_answer": 0,
+    "explanation": "Pointer arithmetic scales by sizeof(int). *(p + 2) is mathematically identical to arr[2].",
+    "difficulty": 4
+  },
+  {
+    "id": "q_c05_1",
+    "subject_id": "c_programming",
+    "concept_id": "C05",
+    "text": "What dangerous condition occurs when accessing memory through a pointer after calling free(ptr)?",
+    "options": [
+      "Memory leak",
+      "Dangling pointer access / Use-After-Free",
+      "Stack overflow",
+      "Buffer overfill"
+    ],
+    "correct_answer": 1,
+    "explanation": "The pointer still holds the deallocated heap address. Dereferencing it is a dangling pointer access resulting in undefined behavior.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_c06_1",
+    "subject_id": "c_programming",
+    "concept_id": "C06",
+    "text": "How do C union members share memory compared to struct members?",
+    "options": [
+      "Each member has separate memory",
+      "All members share the same base memory location, sized to the largest member",
+      "Unions allocate on stack only",
+      "Unions cannot hold pointers"
+    ],
+    "correct_answer": 1,
+    "explanation": "A union allocates memory equal to its largest member, and all members overlap at the same starting address.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_c07_1",
+    "subject_id": "c_programming",
+    "concept_id": "C07",
+    "text": "Which preprocessor directive prevents duplicate inclusion of header files in C compilation?",
+    "options": [
+      "#include <once>",
+      "#pragma once or #ifndef header guards",
+      "#define STRICT",
+      "#import"
+    ],
+    "correct_answer": 1,
+    "explanation": "#ifndef HEADER_H / #define HEADER_H guards or #pragma once prevent circular and duplicate header inclusions.",
+    "difficulty": 6
+  }
+]

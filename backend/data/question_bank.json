@@ -1,0 +1,410 @@
+[
+  {
+    "id": "q_c01_01",
+    "concept_id": "C01",
+    "concept_name": "Variables & Data Types",
+    "difficulty": 0.3,
+    "prompt": "What is the output and type of executing the following Python expression?",
+    "code_snippet": "x = 5 / 2\nprint(type(x), x)",
+    "options": [
+      "<class 'int'> 2",
+      "<class 'float'> 2.5",
+      "<class 'int'> 2.5",
+      "<class 'float'> 2.0"
+    ],
+    "correct_index": 1,
+    "explanation": "In Python 3, the single slash '/' performs true floating-point division, returning 2.5 of type float. Floor division '//' would return the integer 2.",
+    "hint": "Check the difference between single slash / and double slash // in Python 3."
+  },
+  {
+    "id": "q_c01_02",
+    "concept_id": "C01",
+    "concept_name": "Variables & Data Types",
+    "difficulty": 0.6,
+    "prompt": "Which of the following types is mutable in standard Python?",
+    "code_snippet": "a = (1, 2, [3, 4])\nb = \"hello\"\nc = [10, 20]\nd = frozenset([1, 2])",
+    "options": [
+      "Only c",
+      "Both a and c",
+      "Only b and c",
+      "None of them"
+    ],
+    "correct_index": 0,
+    "explanation": "Lists are mutable sequences in Python. Tuples ('a'), strings ('b'), and frozensets ('d') are immutable objects. Note that while tuple 'a' contains a mutable list item, 'a' itself is an immutable container.",
+    "hint": "Immutability means the object's identity cannot change its internal state once instantiated."
+  },
+  {
+    "id": "q_c02_01",
+    "concept_id": "C02",
+    "concept_name": "Conditionals & Boolean Logic",
+    "difficulty": 0.35,
+    "prompt": "What does the following conditional statement evaluate to?",
+    "code_snippet": "val = [] or \"default\"\nprint(val)",
+    "options": [
+      "[]",
+      "True",
+      "\"default\"",
+      "None"
+    ],
+    "correct_index": 2,
+    "explanation": "In Python short-circuit boolean evaluation, an empty list [] is falsy. The 'or' operator evaluates its operands from left to right and returns the first truthy value, which is 'default'.",
+    "hint": "Remember truthiness rules in Python: empty containers evaluate to False."
+  },
+  {
+    "id": "q_c02_02",
+    "concept_id": "C02",
+    "concept_name": "Conditionals & Boolean Logic",
+    "difficulty": 0.7,
+    "prompt": "What will be printed when running this code snippet?",
+    "code_snippet": "def check(x):\n    print('checked', end=' ')\n    return x\n\nres = False and check(True)\nres2 = True or check(False)",
+    "options": [
+      "checked checked",
+      "checked",
+      "No output (empty string)",
+      "TypeError: cannot call check inside logic"
+    ],
+    "correct_index": 2,
+    "explanation": "Because of short-circuit evaluation: for 'False and check(...)', the left side is False, so Python does not evaluate the right side. For 'True or check(...)', the left side is True, so Python also skips the right side. 'check' is never called!",
+    "hint": "Python short-circuits: 'False and ...' and 'True or ...' stop immediately."
+  },
+  {
+    "id": "q_c03_01",
+    "concept_id": "C03",
+    "concept_name": "Loops & Iterations",
+    "difficulty": 0.3,
+    "prompt": "How many times does the print statement execute in this loop?",
+    "code_snippet": "for i in range(1, 10, 3):\n    print(i)",
+    "options": [
+      "3 times (values: 1, 4, 7)",
+      "4 times (values: 1, 4, 7, 10)",
+      "10 times",
+      "2 times"
+    ],
+    "correct_index": 0,
+    "explanation": "range(start, stop, step) begins at 1 and increments by 3: 1, 4, 7. The next value would be 10, which reaches the stop bound (exclusive), so the loop terminates after 3 iterations.",
+    "hint": "The stop parameter in range() is exclusive."
+  },
+  {
+    "id": "q_c03_02",
+    "concept_id": "C03",
+    "concept_name": "Loops & Iterations",
+    "difficulty": 0.65,
+    "prompt": "What is the final value of 'total' after this while-else block executes?",
+    "code_snippet": "total = 0\ni = 0\nwhile i < 5:\n    i += 1\n    if i == 3:\n        continue\n    total += i\nelse:\n    total += 10\nprint(total)",
+    "options": [
+      "12",
+      "22",
+      "15",
+      "25"
+    ],
+    "correct_index": 1,
+    "explanation": "Iterations: i=1 (total=1), i=2 (total=3), i=3 (continue, skipped), i=4 (total=7), i=5 (total=12). The while loop finishes normally without break, so the 'else' block executes and adds 10, resulting in 22.",
+    "hint": "The else clause of a loop runs if and only if the loop terminates normally (not via break)."
+  },
+  {
+    "id": "q_c04_01",
+    "concept_id": "C04",
+    "concept_name": "Functions & Scope",
+    "difficulty": 0.4,
+    "prompt": "What is the output of the following function call?",
+    "code_snippet": "def append_val(item, target=[]):\n    target.append(item)\n    return target\n\na = append_val(1)\nb = append_val(2)\nprint(a, b)",
+    "options": [
+      "[1] [2]",
+      "[1, 2] [1, 2]",
+      "[1] [1, 2]",
+      "TypeError: default arguments cannot be mutable"
+    ],
+    "correct_index": 1,
+    "explanation": "Default argument expressions in Python are evaluated once when the function is defined, not each time it is called. Since target is bound to a single shared list object in memory, both calls mutate the exact same list!",
+    "hint": "Python default arguments are evaluated once at function definition time."
+  },
+  {
+    "id": "q_c04_02",
+    "concept_id": "C04",
+    "concept_name": "Functions & Scope",
+    "difficulty": 0.75,
+    "prompt": "According to the LEGB scoping rule, which scope is checked immediately before the built-in scope?",
+    "code_snippet": "# LEGB Scoping Rule in Python",
+    "options": [
+      "Local",
+      "Enclosing",
+      "Global",
+      "Module"
+    ],
+    "correct_index": 2,
+    "explanation": "LEGB stands for: Local -> Enclosing (nonlocal) -> Global (module-level) -> Built-in. Therefore, Global is inspected immediately before the Built-in namespace.",
+    "hint": "Spell out the acronym: L - E - G - B."
+  },
+  {
+    "id": "q_c05_01",
+    "concept_id": "C05",
+    "concept_name": "Lists & Linear Collections",
+    "difficulty": 0.35,
+    "prompt": "What does the following slice operation return?",
+    "code_snippet": "nums = [10, 20, 30, 40, 50, 60]\nprint(nums[1:5:2])",
+    "options": [
+      "[20, 40]",
+      "[20, 30, 40, 50]",
+      "[10, 30, 50]",
+      "[20, 50]"
+    ],
+    "correct_index": 0,
+    "explanation": "The slice nums[start:stop:step] starts at index 1 (value 20), takes every 2nd element up to but not including index 5. Elements inspected are index 1 (20) and index 3 (40).",
+    "hint": "Index 1 is 20, next is index 1+2=3 which is 40."
+  },
+  {
+    "id": "q_c05_02",
+    "concept_id": "C05",
+    "concept_name": "Lists & Linear Collections",
+    "difficulty": 0.7,
+    "prompt": "What is the average time complexity of appending an element to the end of a Python dynamic list vs inserting at index 0?",
+    "code_snippet": "lst.append(x)     # Case A\nlst.insert(0, x)  # Case B",
+    "options": [
+      "Case A: O(1) amortized, Case B: O(N)",
+      "Case A: O(N), Case B: O(1)",
+      "Both are O(1)",
+      "Both are O(N)"
+    ],
+    "correct_index": 0,
+    "explanation": "Python lists are implemented as contiguous arrays of pointers. Appending to the end is O(1) amortized because over-allocation handles resizing. Inserting at index 0 requires shifting all N existing pointers by one index, taking O(N) time.",
+    "hint": "Inserting at the front requires shifting every existing item rightward."
+  },
+  {
+    "id": "q_c06_01",
+    "concept_id": "C06",
+    "concept_name": "Recursion & Call Stack",
+    "difficulty": 0.45,
+    "prompt": "What is the critical failure mode of the following recursive function for n = 4?",
+    "code_snippet": "def countdown(n):\n    print(n)\n    return countdown(n - 1)",
+    "options": [
+      "Returns None after printing 4",
+      "RecursionError: maximum recursion depth exceeded (stack overflow)",
+      "Memory corruption error",
+      "SyntaxError: return statement invalid"
+    ],
+    "correct_index": 1,
+    "explanation": "The function lacks a base case condition (such as 'if n <= 0: return'). As a consequence, it pushes frames onto the call stack indefinitely until Python's recursion limit is exceeded.",
+    "hint": "Every recursive function must have a terminating base condition."
+  },
+  {
+    "id": "q_c06_02",
+    "concept_id": "C06",
+    "concept_name": "Recursion & Call Stack",
+    "difficulty": 0.8,
+    "prompt": "What is printed by this recursive helper function?",
+    "code_snippet": "def mystery(n):\n    if n <= 0:\n        return\n    mystery(n // 2)\n    print(n % 2, end='')\n\nmystery(13)",
+    "options": [
+      "1011",
+      "1101",
+      "1110",
+      "0111"
+    ],
+    "correct_index": 1,
+    "explanation": "This recursively converts the integer 13 to binary: 13 // 2 = 6, 6 // 2 = 3, 3 // 2 = 1, 1 // 2 = 0 (base case). As the stack unwinds: prints 1%2=1, 3%2=1, 6%2=0, 13%2=1 -> '1101'.",
+    "hint": "Trace calls: 13 -> 6 -> 3 -> 1 -> 0, and note that print happens after the recursive call (post-order unwind)."
+  },
+  {
+    "id": "q_c07_01",
+    "concept_id": "C07",
+    "concept_name": "Big-O Asymptotic Complexity",
+    "difficulty": 0.4,
+    "prompt": "What is the worst-case time complexity of the following code snippet with respect to N?",
+    "code_snippet": "for i in range(n):\n    for j in range(i, n):\n        val += 1",
+    "options": [
+      "O(N)",
+      "O(N log N)",
+      "O(N^2)",
+      "O(2^N)"
+    ],
+    "correct_index": 2,
+    "explanation": "The inner loop runs (N - i) times. Summing from i=0 to N-1 gives N + (N-1) + ... + 1 = N*(N+1)/2, which is Theta(N^2).",
+    "hint": "The sum of 1 to N is arithmetic: (N * (N + 1)) / 2."
+  },
+  {
+    "id": "q_c07_02",
+    "concept_id": "C07",
+    "concept_name": "Big-O Asymptotic Complexity",
+    "difficulty": 0.85,
+    "prompt": "An algorithm repeatedly halves the problem size at each step and performs O(1) work per step. What is its time complexity?",
+    "code_snippet": "T(N) = T(N / 2) + O(1)",
+    "options": [
+      "O(N)",
+      "O(log N)",
+      "O(N log N)",
+      "O(sqrt(N))"
+    ],
+    "correct_index": 1,
+    "explanation": "By Master Theorem case 2 or inspection: dividing N by 2 takes log2(N) steps until reaching size 1. With O(1) work per step, the total time is O(log N).",
+    "hint": "Think of binary search halving intervals."
+  },
+  {
+    "id": "q_c08_01",
+    "concept_id": "C08",
+    "concept_name": "Binary Search",
+    "difficulty": 0.5,
+    "prompt": "What precondition MUST be satisfied by an array for standard Binary Search to work correctly?",
+    "code_snippet": "def binary_search(arr, target): ...",
+    "options": [
+      "The array must contain only unique elements",
+      "The elements must be sorted in monotonic order",
+      "The array length must be a power of 2",
+      "The array must contain positive integers only"
+    ],
+    "correct_index": 1,
+    "explanation": "Binary search relies on monotonicity (sorted order) to eliminate half the search space on each comparison. If elements are not sorted, discarding a half could miss the target.",
+    "hint": "How does binary search know whether to search the left half or right half?"
+  },
+  {
+    "id": "q_c08_02",
+    "concept_id": "C08",
+    "concept_name": "Binary Search",
+    "difficulty": 0.8,
+    "prompt": "In an integer array with potential overflow, which formula safely calculates the midpoint index between 'low' and 'high'?",
+    "code_snippet": "# Midpoint calculation",
+    "options": [
+      "mid = (low + high) // 2",
+      "mid = low + (high - low) // 2",
+      "mid = high - (low // 2)",
+      "mid = (low * high) // 2"
+    ],
+    "correct_index": 1,
+    "explanation": "In languages with fixed-width integers (and good programming practice everywhere), (low + high) can overflow if both values are large. 'low + (high - low) // 2' avoids intermediate overflow while maintaining mathematical equivalence.",
+    "hint": "Subtracting low from high first avoids large sums exceeding boundaries."
+  },
+  {
+    "id": "q_c09_01",
+    "concept_id": "C09",
+    "concept_name": "Divide & Conquer Sorting",
+    "difficulty": 0.55,
+    "prompt": "What is the worst-case and best-case time complexity of Merge Sort?",
+    "code_snippet": "def merge_sort(arr): ...",
+    "options": [
+      "Worst: O(N^2), Best: O(N log N)",
+      "Worst: O(N log N), Best: O(N log N)",
+      "Worst: O(N log N), Best: O(N)",
+      "Worst: O(N^2), Best: O(N)"
+    ],
+    "correct_index": 1,
+    "explanation": "Merge sort divides the array in half at every level (log N levels) and merges halves in linear time O(N) at each level, regardless of initial element ordering. Thus, both best and worst cases are O(N log N).",
+    "hint": "Merge Sort always divides exactly in half, regardless of input order."
+  },
+  {
+    "id": "q_c09_02",
+    "concept_id": "C09",
+    "concept_name": "Divide & Conquer Sorting",
+    "difficulty": 0.85,
+    "prompt": "Why does Quick Sort have a worst-case time complexity of O(N^2)?",
+    "code_snippet": "# Quick Sort Worst Case Analysis",
+    "options": [
+      "Because merging partitions requires quadratic auxiliary space",
+      "When the chosen pivot is consistently the smallest or largest element, creating unbalanced partitions of size 0 and N-1",
+      "Because recursion cannot exceed depth 1000",
+      "Because comparisons between duplicate keys take O(N) each"
+    ],
+    "correct_index": 1,
+    "explanation": "If the pivot chosen is always an extreme element (e.g. In an already sorted array with naive first/last element pivot selection), one partition has 0 elements and the other has N-1. The recursion tree has depth N instead of log N, yielding N * (N+1) / 2 = O(N^2) total work.",
+    "hint": "Consider what happens when a pivot doesn't divide the array evenly."
+  },
+  {
+    "id": "q_c10_01",
+    "concept_id": "C10",
+    "concept_name": "Trees & Binary Search Trees",
+    "difficulty": 0.5,
+    "prompt": "Which traversal order on a valid Binary Search Tree (BST) visits nodes in monotonically ascending sorted order?",
+    "code_snippet": "class TreeNode:\n    def __init__(self, val, left=None, right=None):\n        self.val = val; self.left = left; self.right = right",
+    "options": [
+      "Pre-order (Root -> Left -> Right)",
+      "In-order (Left -> Root -> Right)",
+      "Post-order (Left -> Right -> Root)",
+      "Level-order (BFS)"
+    ],
+    "correct_index": 1,
+    "explanation": "In a BST, all nodes in the left subtree are smaller than root, and all nodes in the right subtree are greater. In-order traversal visits Left, then Root, then Right, directly producing the sorted sequence.",
+    "hint": "Think: smaller values are on the left, current in middle, larger on right."
+  },
+  {
+    "id": "q_c10_02",
+    "concept_id": "C10",
+    "concept_name": "Trees & Binary Search Trees",
+    "difficulty": 0.8,
+    "prompt": "What is the maximum number of nodes in a full binary tree of height H (where a single root node has height 0)?",
+    "code_snippet": "# Tree capacity formula",
+    "options": [
+      "2^H",
+      "2^(H + 1) - 1",
+      "2 * H + 1",
+      "H^2"
+    ],
+    "correct_index": 1,
+    "explanation": "At depth d, there are 2^d nodes. Summing 2^0 + 2^1 + ... + 2^H is a geometric progression equal to 2^(H+1) - 1. For example, height 2 has 1 + 2 + 4 = 7 = 2^3 - 1 nodes.",
+    "hint": "Sum of powers of 2: 1 + 2 + 4 + ... + 2^H."
+  },
+  {
+    "id": "q_c11_01",
+    "concept_id": "C11",
+    "concept_name": "Graphs & Traversal (BFS/DFS)",
+    "difficulty": 0.6,
+    "prompt": "Which data structure is primarily used to implement Breadth-First Search (BFS) on an unweighted graph?",
+    "code_snippet": "def bfs(graph, start_node): ...",
+    "options": [
+      "Stack (LIFO)",
+      "Queue (FIFO)",
+      "Priority Queue (Heap)",
+      "Binary Search Tree"
+    ],
+    "correct_index": 1,
+    "explanation": "BFS explores nodes in increasing order of distance from the source. A First-In-First-Out (FIFO) Queue guarantees that all neighbors at level k are processed before level k+1.",
+    "hint": "Level-by-level exploration requires FIFO ordering."
+  },
+  {
+    "id": "q_c11_02",
+    "concept_id": "C11",
+    "concept_name": "Graphs & Traversal (BFS/DFS)",
+    "difficulty": 0.85,
+    "prompt": "What happens if a cycle is present in an undirected graph and we execute DFS without a 'visited' set?",
+    "code_snippet": "def dfs(node):\n    for neighbor in graph[node]:\n        dfs(neighbor)",
+    "options": [
+      "The traversal finishes normally but visits each node twice",
+      "Infinite recursion leads to stack overflow",
+      "The graph automatically disconnects",
+      "It raises a KeyError"
+    ],
+    "correct_index": 1,
+    "explanation": "Without tracking visited vertices, the recursion will bounce back and forth between adjacent nodes in a cycle (e.g. u -> v -> u -> v...), consuming call stack frames until a stack overflow / RecursionError occurs.",
+    "hint": "Without a memory of where you've been, cycles cause infinite loops."
+  },
+  {
+    "id": "q_c12_01",
+    "concept_id": "C12",
+    "concept_name": "Dynamic Programming & Memoization",
+    "difficulty": 0.6,
+    "prompt": "What two key properties must an optimization problem exhibit to be effectively solved by Dynamic Programming?",
+    "code_snippet": "# DP Characteristics",
+    "options": [
+      "Greedy choice property and polynomial bounds",
+      "Overlapping subproblems and optimal substructure",
+      "Monotonicity and sorted inputs",
+      "Independent subproblems and tail recursion"
+    ],
+    "correct_index": 1,
+    "explanation": "Dynamic Programming is applicable when a problem has: 1) Optimal Substructure (an optimal solution to the problem contains optimal solutions to subproblems), and 2) Overlapping Subproblems (the same subproblems are solved repeatedly).",
+    "hint": "DP reuses cached solutions to identical repeated subproblems."
+  },
+  {
+    "id": "q_c12_02",
+    "concept_id": "C12",
+    "concept_name": "Dynamic Programming & Memoization",
+    "difficulty": 0.9,
+    "prompt": "What is the time complexity of finding the N-th Fibonacci number using naive recursion vs top-down memoization?",
+    "code_snippet": "# Naive: fib(n) = fib(n-1) + fib(n-2)\n# Memoized: cache[n] = memo_fib(n-1) + memo_fib(n-2)",
+    "options": [
+      "Naive: O(N), Memoized: O(1)",
+      "Naive: O(2^N), Memoized: O(N)",
+      "Naive: O(N log N), Memoized: O(N)",
+      "Naive: O(N^2), Memoized: O(log N)"
+    ],
+    "correct_index": 1,
+    "explanation": "Naive recursion branches twice at each step, producing an exponential call tree of ~O(2^N) calls. Memoization stores results in a table/dictionary, computing each subproblem 0..N exactly once in O(1) time, reducing total runtime to O(N).",
+    "hint": "Branching factor is 2 without caching; each state 0..N is computed once with caching."
+  }
+]

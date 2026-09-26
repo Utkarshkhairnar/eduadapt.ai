@@ -1,0 +1,38 @@
+subject_id: "automata_theory"
+display_name: "Automata Theory"
+concepts:
+  - id: "AT01"
+    name: "Alphabets, Strings & Languages"
+    prerequisites: []
+    difficulty_base: 1
+    description: "Symbols, alphabet definitions, string operations, prefix, suffix, language closures."
+  - id: "AT02"
+    name: "Deterministic Finite Automata (DFA)"
+    prerequisites: ["AT01"]
+    difficulty_base: 2
+    description: "5-tuple transition functions, state transition tables, language acceptance in DFA."
+  - id: "AT03"
+    name: "Nondeterministic Finite Automata (NFA)"
+    prerequisites: ["AT02"]
+    difficulty_base: 3
+    description: "Epsilon transitions, subset construction algorithm (NFA to DFA equivalence)."
+  - id: "AT04"
+    name: "Regular Expressions & Equivalence"
+    prerequisites: ["AT02", "AT03"]
+    difficulty_base: 4
+    description: "Arden's theorem, converting regex to DFA/NFA and vice versa, pumping lemma for regular languages."
+  - id: "AT05"
+    name: "Context-Free Grammars (CFG)"
+    prerequisites: ["AT04"]
+    difficulty_base: 4
+    description: "Production rules, derivations, parse trees, ambiguity in grammars, Chomsky Normal Form (CNF)."
+  - id: "AT06"
+    name: "Pushdown Automata (PDA)"
+    prerequisites: ["AT05"]
+    difficulty_base: 5
+    description: "Stack transitions, deterministic vs nondeterministic PDA, equivalence of PDA and CFG."
+  - id: "AT07"
+    name: "Turing Machines & Decidability"
+    prerequisites: ["AT06"]
+    difficulty_base: 7
+    description: "Tape heads, instantaneous descriptions, Halting Problem, Church-Turing thesis, decidability."

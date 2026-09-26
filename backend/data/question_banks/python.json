@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q_p01_1",
+    "subject_id": "python",
+    "concept_id": "P01",
+    "text": "Which of the following data types is immutable in Python?",
+    "options": [
+      "list",
+      "dict",
+      "tuple",
+      "set"
+    ],
+    "correct_answer": 2,
+    "explanation": "Tuples, strings, and integers are immutable in Python; lists, dicts, and sets can be mutated in-place.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_p02_1",
+    "subject_id": "python",
+    "concept_id": "P02",
+    "text": "What does expression: [] or 'fallback' evaluate to in Python?",
+    "options": [
+      "[]",
+      "True",
+      "'fallback'",
+      "None"
+    ],
+    "correct_answer": 2,
+    "explanation": "In short-circuit boolean logic, empty list [] is falsy, so 'or' returns the first truthy operand 'fallback'.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_p03_1",
+    "subject_id": "python",
+    "concept_id": "P03",
+    "text": "What keyword turns a standard Python function into a generator object?",
+    "options": [
+      "generate",
+      "yield",
+      "return async",
+      "iterate"
+    ],
+    "correct_answer": 1,
+    "explanation": "The yield keyword produces values lazily one at a time and maintains execution state between calls.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_p04_1",
+    "subject_id": "python",
+    "concept_id": "P04",
+    "text": "What does the LEGB rule stand for in Python identifier resolution?",
+    "options": [
+      "Loop, Expression, Global, Block",
+      "Local, Enclosing, Global, Built-in",
+      "Logical, Explicit, Generic, Base",
+      "Lambda, Execution, Group, Binding"
+    ],
+    "correct_answer": 1,
+    "explanation": "Python searches namespaces in strict LEGB order: Local -> Enclosing -> Global -> Built-in.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_p05_1",
+    "subject_id": "python",
+    "concept_id": "P05",
+    "text": "What is the average time complexity of a key lookup in a Python dictionary?",
+    "options": [
+      "O(1) amortized",
+      "O(N)",
+      "O(log N)",
+      "O(N^2)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Python dictionaries are implemented as optimized open-addressed hash tables with amortized O(1) average lookup time.",
+    "difficulty": 4
+  },
+  {
+    "id": "q_p06_1",
+    "subject_id": "python",
+    "concept_id": "P06",
+    "text": "What error occurs if a recursive function in Python lacks a terminating base case?",
+    "options": [
+      "MemoryError",
+      "RecursionError: maximum recursion depth exceeded",
+      "StackLeakException",
+      "ZeroDivisionError"
+    ],
+    "correct_answer": 1,
+    "explanation": "Python limits recursive calls (default 1000 frames) to protect the C call stack, raising RecursionError upon overflow.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_p07_1",
+    "subject_id": "python",
+    "concept_id": "P07",
+    "text": "What algorithm does Python 3 use for Method Resolution Order (MRO) in multiple inheritance?",
+    "options": [
+      "Depth-First Search",
+      "C3 Superconcurrency Linearization",
+      "Breadth-First Search",
+      "Random Selection"
+    ],
+    "correct_answer": 1,
+    "explanation": "Python uses the C3 Linearization algorithm to determine monotonic inheritance hierarchy order.",
+    "difficulty": 6
+  }
+]

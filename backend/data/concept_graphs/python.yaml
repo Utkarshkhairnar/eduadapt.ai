@@ -1,0 +1,38 @@
+subject_id: "python"
+display_name: "Python"
+concepts:
+  - id: "P01"
+    name: "Variables & Memory Model"
+    prerequisites: []
+    difficulty_base: 2
+    description: "Primitives, dynamic typing, mutable vs immutable objects, object references, id()."
+  - id: "P02"
+    name: "Conditionals & Short-Circuit Logic"
+    prerequisites: ["P01"]
+    difficulty_base: 2
+    description: "Truthiness, logical operators (and/or/not), short-circuit evaluation, ternary expressions."
+  - id: "P03"
+    name: "Loops & Iterators"
+    prerequisites: ["P02"]
+    difficulty_base: 3
+    description: "for/while loops, range(), iterators, generators (yield), itertools."
+  - id: "P04"
+    name: "Functions & Scoping (LEGB)"
+    prerequisites: ["P02"]
+    difficulty_base: 3
+    description: "def, *args, **kwargs, default argument traps, closures, LEGB scope rules."
+  - id: "P05"
+    name: "Lists, Dicts & Comprehensions"
+    prerequisites: ["P01", "P04"]
+    difficulty_base: 4
+    description: "List comprehensions, dict/set comprehensions, hashing, amortized O(1) lookups."
+  - id: "P06"
+    name: "Recursion & Call Stack"
+    prerequisites: ["P04"]
+    difficulty_base: 5
+    description: "Base cases, call stack frames, recursive tree descent, memoization."
+  - id: "P07"
+    name: "OOP & Magic Methods"
+    prerequisites: ["P04", "P05"]
+    difficulty_base: 6
+    description: "Classes, __init__, __str__, dunder methods, inheritance, MRO (Method Resolution Order)."

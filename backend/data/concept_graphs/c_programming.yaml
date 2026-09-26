@@ -1,0 +1,38 @@
+subject_id: "c_programming"
+display_name: "C"
+concepts:
+  - id: "C01"
+    name: "Data Types, Operators & Storage Classes"
+    prerequisites: []
+    difficulty_base: 2
+    description: "Primitives, signed vs unsigned, bitwise operators, auto, static, extern, register."
+  - id: "C02"
+    name: "Control Flow & Functions"
+    prerequisites: ["C01"]
+    difficulty_base: 2
+    description: "Branching, loops, function prototypes, call-by-value, stack frames."
+  - id: "C03"
+    name: "Arrays, Strings & String Handling"
+    prerequisites: ["C01", "C02"]
+    difficulty_base: 3
+    description: "Multi-dimensional arrays, null-terminated strings, string.h functions, buffer bounds."
+  - id: "C04"
+    name: "Pointers & Pointer Arithmetic"
+    prerequisites: ["C03"]
+    difficulty_base: 4
+    description: "Address-of operator &, dereference *, pointer arithmetic, pointer to pointer (double pointer)."
+  - id: "C05"
+    name: "Dynamic Memory Management"
+    prerequisites: ["C04"]
+    difficulty_base: 5
+    description: "malloc, calloc, realloc, free, memory leaks, dangling pointers, heap fragmentation."
+  - id: "C06"
+    name: "Structures, Unions & Bitfields"
+    prerequisites: ["C04", "C05"]
+    difficulty_base: 5
+    description: "struct keyword, union shared memory, struct padding and alignment, typedef."
+  - id: "C07"
+    name: "File I/O & Preprocessor Directives"
+    prerequisites: ["C04", "C06"]
+    difficulty_base: 6
+    description: "fopen, fread, fwrite, fclose, macro substitution (#define), conditional compilation (#ifdef)."

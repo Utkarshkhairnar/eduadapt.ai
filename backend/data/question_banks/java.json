@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q_j01_1",
+    "subject_id": "java",
+    "concept_id": "J01",
+    "text": "Which access modifier restricts member visibility strictly to the declaring class?",
+    "options": [
+      "public",
+      "protected",
+      "default (package-private)",
+      "private"
+    ],
+    "correct_answer": 3,
+    "explanation": "private variables and methods are only accessible within the enclosing class body.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_j02_1",
+    "subject_id": "java",
+    "concept_id": "J02",
+    "text": "What happens during runtime dynamic method dispatch when calling a method on an overridden instance?",
+    "options": [
+      "Calls reference type version",
+      "Calls actual object runtime type version",
+      "Throws ClassCastException",
+      "Compiles to static call"
+    ],
+    "correct_answer": 1,
+    "explanation": "Java resolves overridden non-static methods dynamically at runtime based on the actual object instance type in heap memory.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_j03_1",
+    "subject_id": "java",
+    "concept_id": "J03",
+    "text": "Which of the following is an UNCHECKED exception in Java?",
+    "options": [
+      "IOException",
+      "SQLException",
+      "NullPointerException",
+      "ClassNotFoundException"
+    ],
+    "correct_answer": 2,
+    "explanation": "Subclasses of RuntimeException (like NullPointerException, ArrayIndexOutOfBoundsException) are unchecked.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_j04_1",
+    "subject_id": "java",
+    "concept_id": "J04",
+    "text": "What underlying data structure does standard Java HashMap (Java 8+) use when a bucket exceeds 8 collision elements?",
+    "options": [
+      "LinkedList",
+      "Red-Black Balanced Tree (TreeNode)",
+      "ArrayList",
+      "Circular Buffer"
+    ],
+    "correct_answer": 1,
+    "explanation": "Java 8 converts linked list buckets into balanced red-black trees when the treeify threshold of 8 is crossed, improving collision lookup from O(N) to O(log N).",
+    "difficulty": 4
+  },
+  {
+    "id": "q_j05_1",
+    "subject_id": "java",
+    "concept_id": "J05",
+    "text": "What is the effect of Java Generics Type Erasure at runtime?",
+    "options": [
+      "Types are preserved and checked at runtime",
+      "Type arguments are erased and replaced by their bounds (or Object) in bytecode",
+      "Generics generate separate class files for each type",
+      "Static types throw errors"
+    ],
+    "correct_answer": 1,
+    "explanation": "Type erasure removes parameter types at compile time, ensuring backward compatibility with older pre-generics JVM versions.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_j06_1",
+    "subject_id": "java",
+    "concept_id": "J06",
+    "text": "What does the 'volatile' keyword guarantee in Java multi-threaded execution?",
+    "options": [
+      "Atomicity of compound operations (i++)",
+      "Visibility: reads and writes bypass CPU cache directly to main memory",
+      "Thread sleeping",
+      "Automatic deadlock prevention"
+    ],
+    "correct_answer": 1,
+    "explanation": "volatile establishes a happens-before relationship ensuring all threads observe the freshest value from main memory.",
+    "difficulty": 6
+  },
+  {
+    "id": "q_j07_1",
+    "subject_id": "java",
+    "concept_id": "J07",
+    "text": "In the JVM generational memory architecture, where are short-lived objects primarily allocated?",
+    "options": [
+      "Old / Tenured Generation",
+      "Eden Space in Young Generation",
+      "Metaspace",
+      "Native Method Stack"
+    ],
+    "correct_answer": 1,
+    "explanation": "New objects are instantiated in Eden space; survivors of Minor GC passes are promoted to Survivor spaces and eventually Tenured generation.",
+    "difficulty": 7
+  }
+]

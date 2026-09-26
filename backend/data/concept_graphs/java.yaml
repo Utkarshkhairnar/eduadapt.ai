@@ -1,0 +1,38 @@
+subject_id: "java"
+display_name: "Java"
+concepts:
+  - id: "J01"
+    name: "Classes, Objects & Encapsulation"
+    prerequisites: []
+    difficulty_base: 2
+    description: "Constructors, access modifiers (private, protected, public), getters/setters, 'this' keyword."
+  - id: "J02"
+    name: "Inheritance & Polymorphism"
+    prerequisites: ["J01"]
+    difficulty_base: 3
+    description: "Method overriding, super keyword, dynamic method dispatch, abstract classes, interfaces."
+  - id: "J03"
+    name: "Exception Handling & Robustness"
+    prerequisites: ["J02"]
+    difficulty_base: 3
+    description: "Checked vs unchecked exceptions, try-catch-finally, try-with-resources, custom exceptions."
+  - id: "J04"
+    name: "Java Collections Framework"
+    prerequisites: ["J02"]
+    difficulty_base: 4
+    description: "List, Set, Map interfaces, ArrayList vs LinkedList, HashMap internals, Comparable vs Comparator."
+  - id: "J05"
+    name: "Generics & Type Erasure"
+    prerequisites: ["J04"]
+    difficulty_base: 5
+    description: "Generic classes, bounded type parameters, wildcards (? extends, ? super), runtime erasure."
+  - id: "J06"
+    name: "Multithreading & Synchronization"
+    prerequisites: ["J03", "J04"]
+    difficulty_base: 6
+    description: "Thread lifecycle, Runnable vs Callable, synchronized blocks, locks, volatile, thread pools."
+  - id: "J07"
+    name: "JVM Architecture & Memory Model"
+    prerequisites: ["J02", "J06"]
+    difficulty_base: 7
+    description: "Heap vs Stack, Garbage Collection algorithms (G1, CMS), Classloader hierarchy, bytecode execution."

@@ -1,0 +1,50 @@
+app:
+  name: "EduAdapt AI"
+  version: "1.0.0"
+  subject: "Python Programming & Algorithmic Thinking"
+
+mastery:
+  threshold: 0.70          # Mastery probability threshold (>= 0.70 means mastered)
+  weak_threshold: 0.45     # Below 0.45 is flagged as critical gap
+
+bkt:
+  p_init: 0.25             # Prior probability of knowing the concept before practice
+  p_transit: 0.18          # Probability of learning/transitioning on an item attempt
+  p_slip: 0.10             # Probability of slipping (knowing, but making a mistake)
+  p_guess: 0.20            # Probability of guessing correctly without mastery
+
+adaptive_quiz:
+  default_difficulty: 0.50 # Starting difficulty for quiz
+  difficulty_step: 0.15    # Step adjustment per answer
+  min_difficulty: 0.10
+  max_difficulty: 1.00
+  streak_bonus: 0.05       # Extra step if streak >= 2
+  streak_penalty: 0.05     # Extra decrease if loss streak >= 2
+  questions_per_session: 5 # Number of questions in an adaptive quiz loop
+
+diagnostic:
+  questions_per_concept: 1 # Number of diagnostic questions per core concept
+  time_limit_minutes: 10
+
+# ── Dynamic Question Generation (Feature 1) ──────────────────
+dynamic_questions_after_first: true
+dynamic_questions:
+  enabled: true            # true = Tier 2 GenAI questions for retakes/quiz
+  exclude_last_n: 5        # Deduplicate against last N questions served per concept
+  max_regeneration_attempts: 2  # Retry once if LLM returns malformed JSON
+
+# ── Attempt Reports (Feature 3) ──────────────────────────────
+reports:
+  enabled: true
+  include_genai_summary: true   # false = skip LLM summary (faster, still shows data)
+
+llm:
+  model: "gemini-1.5-flash"
+  temperature: 0.7
+  provider: "auto"         # 'gemini', 'openai', or 'mock_fallback'
+
+google_drive:
+  credentials_path: "credentials.json"
+  default_folder_url: "https://drive.google.com/drive/folders/1hGhtwrpMxWxtwi4NAnkreCz-_B5dy_Eo"
+  default_folder_id: "1hGhtwrpMxWxtwi4NAnkreCz-_B5dy_Eo"
+  confidence_threshold: 0.60

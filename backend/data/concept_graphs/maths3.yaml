@@ -1,0 +1,38 @@
+subject_id: "maths3"
+display_name: "Maths 3"
+concepts:
+  - id: "M01"
+    name: "Linear Equations & Matrices"
+    prerequisites: []
+    difficulty_base: 2
+    description: "Matrix operations, determinants, rank of a matrix, Gaussian elimination."
+  - id: "M02"
+    name: "Eigenvalues & Eigenvectors"
+    prerequisites: ["M01"]
+    difficulty_base: 4
+    description: "Characteristic equation, diagonalization, Cayley-Hamilton theorem."
+  - id: "M03"
+    name: "Ordinary Differential Equations"
+    prerequisites: []
+    difficulty_base: 3
+    description: "First and higher order linear differential equations, variation of parameters."
+  - id: "M04"
+    name: "Laplace Transforms"
+    prerequisites: ["M03"]
+    difficulty_base: 4
+    description: "Laplace transforms of elementary functions, inverse transform, convolution theorem."
+  - id: "M05"
+    name: "Fourier Series & Harmonics"
+    prerequisites: ["M03"]
+    difficulty_base: 5
+    description: "Euler's formulae, Dirichlet conditions, half-range expansions, harmonic analysis."
+  - id: "M06"
+    name: "Partial Differential Equations"
+    prerequisites: ["M03", "M05"]
+    difficulty_base: 6
+    description: "Classification of PDEs, separation of variables, wave and heat equations."
+  - id: "M07"
+    name: "Complex Analytic Functions"
+    prerequisites: ["M01", "M03"]
+    difficulty_base: 6
+    description: "Cauchy-Riemann equations, harmonic conjugates, conformal mapping, residue calculus."

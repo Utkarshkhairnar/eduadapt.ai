@@ -1,0 +1,38 @@
+subject_id: "adsa"
+display_name: "ADSA"
+concepts:
+  - id: "DS01"
+    name: "Asymptotic Analysis & Recurrences"
+    prerequisites: []
+    difficulty_base: 2
+    description: "Big-O, Omega, Theta, Master Theorem, substitution method, recursion tree."
+  - id: "DS02"
+    name: "Self-Balancing Trees (AVL & Red-Black)"
+    prerequisites: ["DS01"]
+    difficulty_base: 4
+    description: "Tree rotations, balance factor, color invariants, O(log N) insertion and deletion."
+  - id: "DS03"
+    name: "B-Trees & Multiway Search"
+    prerequisites: ["DS02"]
+    difficulty_base: 5
+    description: "Disk access minimization, branching factor, split and merge node mechanics."
+  - id: "DS04"
+    name: "Graph Algorithms & Shortest Paths"
+    prerequisites: ["DS01"]
+    difficulty_base: 4
+    description: "Dijkstra, Bellman-Ford, Floyd-Warshall, DAG topological ordering."
+  - id: "DS05"
+    name: "Minimum Spanning Trees & Disjoint Sets"
+    prerequisites: ["DS04"]
+    difficulty_base: 4
+    description: "Kruskal's algorithm, Prim's algorithm, Union-Find with path compression."
+  - id: "DS06"
+    name: "Dynamic Programming Paradigms"
+    prerequisites: ["DS01", "DS04"]
+    difficulty_base: 6
+    description: "Optimal substructure, overlapping subproblems, memoization, matrix chain multiplication."
+  - id: "DS07"
+    name: "NP-Completeness & Approximation"
+    prerequisites: ["DS06"]
+    difficulty_base: 7
+    description: "P vs NP, polynomial-time reductions, 3-SAT, Vertex Cover, Traveling Salesperson."

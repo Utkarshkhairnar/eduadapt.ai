@@ -1,0 +1,135 @@
+subject: "Python Programming & Algorithmic Thinking"
+version: "1.0"
+concepts:
+  - id: "C01"
+    name: "Variables & Data Types"
+    category: "Basics"
+    tier: 1
+    description: "Memory allocation, primitives (int, float, str, bool), type casting, and immutability."
+    importance_weight: 1.0
+    prerequisites: []
+    learning_objectives:
+      - "Distinguish mutable vs immutable primitive types"
+      - "Perform correct type conversions without loss of precision"
+      - "Understand memory reference binding"
+
+  - id: "C02"
+    name: "Conditionals & Boolean Logic"
+    category: "Control Flow"
+    tier: 1
+    description: "Branching execution paths, truthiness, short-circuit evaluation, and logical operators."
+    importance_weight: 1.0
+    prerequisites: ["C01"]
+    learning_objectives:
+      - "Evaluate chained logical expressions using short-circuit logic"
+      - "Apply branching to control algorithm state transitions"
+
+  - id: "C03"
+    name: "Loops & Iterations"
+    category: "Control Flow"
+    tier: 2
+    description: "Definite and indefinite loops, loop invariants, nested loops, break/continue semantics."
+    importance_weight: 1.2
+    prerequisites: ["C02"]
+    learning_objectives:
+      - "Write nested loops while avoiding infinite termination bugs"
+      - "Maintain loop invariants for iterative algorithms"
+
+  - id: "C04"
+    name: "Functions & Scope"
+    category: "Modularity"
+    tier: 2
+    description: "Function definitions, parameter passing (pass-by-assignment), return values, LEGB scoping."
+    importance_weight: 1.2
+    prerequisites: ["C02"]
+    learning_objectives:
+      - "Distinguish local, enclosing, global, and built-in scopes"
+      - "Pass mutable vs immutable objects cleanly into functions"
+
+  - id: "C05"
+    name: "Lists & Linear Collections"
+    category: "Data Structures"
+    tier: 2
+    description: "Dynamic arrays, indexing, slicing, amortized O(1) appending, list comprehensions, and mutability."
+    importance_weight: 1.3
+    prerequisites: ["C01", "C04"]
+    learning_objectives:
+      - "Manipulate dynamic sequences efficiently using slices and indexing"
+      - "Recognize in-place modifications vs copies"
+
+  - id: "C06"
+    name: "Recursion & Call Stack"
+    category: "Algorithmic Paradigms"
+    tier: 3
+    description: "Base cases, recursive reduction, call stack frames, and stack overflow avoidance."
+    importance_weight: 1.4
+    prerequisites: ["C04"]
+    learning_objectives:
+      - "Identify essential base conditions to guarantee termination"
+      - "Trace call stack activation records during recursive descent and unwinding"
+
+  - id: "C07"
+    name: "Big-O Asymptotic Complexity"
+    category: "Theory"
+    tier: 3
+    description: "Upper bound growth rates, counting dominant operations, worst/best/average case analysis."
+    importance_weight: 1.4
+    prerequisites: ["C03", "C05"]
+    learning_objectives:
+      - "Determine asymptotic runtime of nested loops and operations"
+      - "Trade off space complexity for improved time efficiency"
+
+  - id: "C08"
+    name: "Binary Search"
+    category: "Algorithms"
+    tier: 3
+    description: "Divide-and-conquer on sorted sequences, midpoint calculation, loop conditions, O(log N) search."
+    importance_weight: 1.5
+    prerequisites: ["C05", "C07"]
+    learning_objectives:
+      - "Implement bug-free binary search boundary conditions"
+      - "Identify monotonicity properties required for binary search"
+
+  - id: "C09"
+    name: "Divide & Conquer Sorting"
+    category: "Algorithms"
+    tier: 4
+    description: "Merge Sort and Quick Sort mechanics, partition strategies, recursive merge, O(N log N) proofs."
+    importance_weight: 1.5
+    prerequisites: ["C06", "C07"]
+    learning_objectives:
+      - "Implement recursive array partitioning or merging"
+      - "Analyze the recurrence relation T(n) = 2T(n/2) + O(n)"
+
+  - id: "C10"
+    name: "Trees & Binary Search Trees"
+    category: "Data Structures"
+    tier: 4
+    description: "Node references, tree traversal (in-order, pre-order, post-order), BST invariant, height balance."
+    importance_weight: 1.6
+    prerequisites: ["C06", "C08"]
+    learning_objectives:
+      - "Navigate linked nodes via recursive depth-first traversals"
+      - "Validate and search within binary search trees"
+
+  - id: "C11"
+    name: "Graphs & Traversal (BFS/DFS)"
+    category: "Algorithms"
+    tier: 4
+    description: "Adjacency lists, visited sets, breadth-first search with queues, depth-first search with stacks."
+    importance_weight: 1.6
+    prerequisites: ["C05", "C10"]
+    learning_objectives:
+      - "Select between BFS for shortest unweighted path vs DFS for topological explore"
+      - "Track visited nodes to prevent cycles"
+
+  - id: "C12"
+    name: "Dynamic Programming & Memoization"
+    category: "Algorithmic Paradigms"
+    tier: 4
+    description: "Overlapping subproblems, optimal substructure, top-down memoization, bottom-up tabulation."
+    importance_weight: 1.8
+    prerequisites: ["C06", "C07"]
+    learning_objectives:
+      - "Formulate state transition relations for overlapping subproblems"
+      - "Convert exponential recursive trees into polynomial time via caching"

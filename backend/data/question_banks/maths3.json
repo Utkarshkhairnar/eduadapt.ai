@@ -1,0 +1,154 @@
+[
+  {
+    "id": "q_m01_1",
+    "subject_id": "maths3",
+    "concept_id": "M01",
+    "text": "What is the determinant of a 2x2 matrix [[a, b], [c, d]]?",
+    "options": [
+      "ad + bc",
+      "ad - bc",
+      "ab - cd",
+      "ac - bd"
+    ],
+    "correct_answer": 1,
+    "explanation": "By definition of a 2x2 determinant, det(A) = ad - bc.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m01_2",
+    "subject_id": "maths3",
+    "concept_id": "M01",
+    "text": "If rank(A) = rank([A|B]) = number of unknowns in Ax = B, what is the system's nature?",
+    "options": [
+      "No solution",
+      "Infinitely many solutions",
+      "Unique solution",
+      "Trivial solution only"
+    ],
+    "correct_answer": 2,
+    "explanation": "Rouch\u00e9-Capelli theorem: When rank(A) = rank([A|B]) = n, the linear system has a unique consistent solution.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_m02_1",
+    "subject_id": "maths3",
+    "concept_id": "M02",
+    "text": "What theorem states that every square matrix satisfies its own characteristic equation?",
+    "options": [
+      "Euler's Theorem",
+      "Cayley-Hamilton Theorem",
+      "Green's Theorem",
+      "Stokes' Theorem"
+    ],
+    "correct_answer": 1,
+    "explanation": "The Cayley-Hamilton theorem states that substituting A into its characteristic polynomial p(lambda) = det(A - lambda*I) yields the zero matrix p(A) = 0.",
+    "difficulty": 4
+  },
+  {
+    "id": "q_m03_1",
+    "subject_id": "maths3",
+    "concept_id": "M03",
+    "text": "What is the integrating factor for the linear first-order ODE dy/dx + P(x)y = Q(x)?",
+    "options": [
+      "exp(integral P(x) dx)",
+      "integral P(x) dx",
+      "exp(-P(x))",
+      "P(x) * Q(x)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Multiplying the equation by e^(integral P(x)dx) converts the left side into the derivative of (y * e^(integral P(x)dx)).",
+    "difficulty": 3
+  },
+  {
+    "id": "q_m04_1",
+    "subject_id": "maths3",
+    "concept_id": "M04",
+    "text": "What is the Laplace transform of the function f(t) = e^(at) for s > a?",
+    "options": [
+      "1 / s",
+      "1 / (s - a)",
+      "a / (s^2 + a^2)",
+      "1 / (s + a)"
+    ],
+    "correct_answer": 1,
+    "explanation": "L{e^(at)} = integral_0^inf e^(-st) e^(at) dt = integral_0^inf e^(-(s-a)t) dt = 1/(s - a).",
+    "difficulty": 4
+  },
+  {
+    "id": "q_m05_1",
+    "subject_id": "maths3",
+    "concept_id": "M05",
+    "text": "Under Dirichlet conditions, what value does a Fourier series converge to at a point of jump discontinuity x_0?",
+    "options": [
+      "0",
+      "The maximum limit",
+      "Average of left and right hand limits: (f(x0+) + f(x0-)) / 2",
+      "Does not converge"
+    ],
+    "correct_answer": 2,
+    "explanation": "Dirichlet's theorem guarantees convergence to the arithmetic mean of the one-sided limits at any finite jump discontinuity.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_m06_1",
+    "subject_id": "maths3",
+    "concept_id": "M06",
+    "text": "The one-dimensional wave equation d^2u/dt^2 = c^2 (d^2u/dx^2) is classified as which type of PDE?",
+    "options": [
+      "Elliptic",
+      "Parabolic",
+      "Hyperbolic",
+      "Nonlinear"
+    ],
+    "correct_answer": 2,
+    "explanation": "For B^2 - 4AC > 0, the second-order linear PDE is hyperbolic, which characterizes wave propagation.",
+    "difficulty": 6
+  },
+  {
+    "id": "q_m07_1",
+    "subject_id": "maths3",
+    "concept_id": "M07",
+    "text": "What are the Cauchy-Riemann equations for an analytic function f(z) = u(x,y) + i*v(x,y)?",
+    "options": [
+      "du/dx = dv/dy and du/dy = -dv/dx",
+      "du/dx = -dv/dy and du/dy = dv/dx",
+      "du/dx = dv/dx and du/dy = dv/dy",
+      "u^2 + v^2 = constant"
+    ],
+    "correct_answer": 0,
+    "explanation": "The CR equations du/dx = dv/dy and du/dy = -dv/dx are necessary conditions for complex differentiability.",
+    "difficulty": 6
+  },
+  {
+    "id": "maths3_q_1",
+    "subject_id": "maths3",
+    "concept_id": "maths3.M01",
+    "raw_concept_id": "M01",
+    "text": "What is the rank of an identity matrix of size 3x3?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "0"
+    ],
+    "correct_answer": "3",
+    "explanation": "The rank of an identity matrix equals its dimension.",
+    "difficulty": 2.0
+  },
+  {
+    "id": "maths3_q_2",
+    "subject_id": "maths3",
+    "concept_id": "maths3.M01",
+    "raw_concept_id": "M01",
+    "text": "Which condition must hold for matrix invertibility?",
+    "options": [
+      "Determinant is zero",
+      "Determinant is non-zero",
+      "Trace is zero",
+      "Rank is 1"
+    ],
+    "correct_answer": "Determinant is non-zero",
+    "explanation": "A matrix is invertible if and only if its determinant is non-zero.",
+    "difficulty": 3.0
+  }
+]

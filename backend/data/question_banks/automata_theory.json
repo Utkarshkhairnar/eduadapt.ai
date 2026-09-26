@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q_at01_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT01",
+    "text": "If alphabet Sigma = {0, 1}, what is the length of the empty string epsilon?",
+    "options": [
+      "0",
+      "1",
+      "Undefined",
+      "Infinity"
+    ],
+    "correct_answer": 0,
+    "explanation": "By definition, the empty string epsilon has length |epsilon| = 0.",
+    "difficulty": 1
+  },
+  {
+    "id": "q_at02_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT02",
+    "text": "In a Deterministic Finite Automaton (DFA), the transition function delta maps from:",
+    "options": [
+      "Q x Sigma -> Q",
+      "Q x Sigma -> 2^Q",
+      "Q -> Sigma",
+      "2^Q x Sigma -> Q"
+    ],
+    "correct_answer": 0,
+    "explanation": "For every state q in Q and symbol a in Sigma, a DFA has exactly one deterministic target state delta(q, a) in Q.",
+    "difficulty": 2
+  },
+  {
+    "id": "q_at03_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT03",
+    "text": "What is the maximum number of states in a DFA equivalent to an NFA with N states?",
+    "options": [
+      "N",
+      "N^2",
+      "2^N",
+      "N!"
+    ],
+    "correct_answer": 2,
+    "explanation": "The power-set construction maps subsets of NFA states to DFA states, yielding at most 2^N states.",
+    "difficulty": 3
+  },
+  {
+    "id": "q_at04_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT04",
+    "text": "Which property is proven using the Pumping Lemma for regular languages?",
+    "options": [
+      "That a language is regular",
+      "That a language is non-regular (by contradiction)",
+      "That an automaton has minimal states",
+      "That a grammar is unambiguous"
+    ],
+    "correct_answer": 1,
+    "explanation": "The Pumping Lemma is a necessary property of regular languages; failing it proves a language is NOT regular.",
+    "difficulty": 4
+  },
+  {
+    "id": "q_at05_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT05",
+    "text": "In Chomsky Normal Form (CNF), all production rules must be of which forms?",
+    "options": [
+      "A -> BC or A -> a",
+      "A -> aB or A -> a",
+      "A -> alpha B beta",
+      "A -> aBC"
+    ],
+    "correct_answer": 0,
+    "explanation": "In CNF, every production rule yields either exactly two non-terminals (A -> BC) or a single terminal (A -> a).",
+    "difficulty": 4
+  },
+  {
+    "id": "q_at06_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT06",
+    "text": "What auxiliary memory structure equips a Pushdown Automaton (PDA) beyond a finite state control?",
+    "options": [
+      "Queue (FIFO)",
+      "Stack (LIFO)",
+      "Random Access Array",
+      "Two-way Infinite Tape"
+    ],
+    "correct_answer": 1,
+    "explanation": "A PDA is a finite automaton augmented with an unbounded LIFO stack.",
+    "difficulty": 5
+  },
+  {
+    "id": "q_at07_1",
+    "subject_id": "automata_theory",
+    "concept_id": "AT07",
+    "text": "The Halting Problem for Turing Machines is:",
+    "options": [
+      "Decidable in polynomial time",
+      "Undecidable / semi-decidable",
+      "Decidable in exponential time",
+      "Trivially solvable"
+    ],
+    "correct_answer": 1,
+    "explanation": "Alan Turing proved in 1936 via diagonalization that no general algorithm can decide if an arbitrary program halts on an arbitrary input.",
+    "difficulty": 7
+  }
+]
